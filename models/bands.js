@@ -1,15 +1,14 @@
 const db = require("../db");
 
 const all = () => {
-  // use my db connection to go and get my bands from the db
-  // once i get my bands I will pass the data into the callback
-  return db
-    .queryAsync(
-      `SELECT * 
-        FROM bands;`
-    )
-    .then(results => results[0]);
+  // TODO Retrieve all data from bands table
 };
+
+/**
+ * ============================
+ * Below you will find an example of a filter query
+ * ============================
+ */
 
 /**
  *

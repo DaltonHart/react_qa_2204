@@ -33,9 +33,7 @@ app.use(express.json());
 
 // bands
 app.get("/api/v1/bands", function (req, res) {
-  Band.all().then(data => {
-    res.send(data);
-  });
+  // TODO add model of get All
 });
 
 /* === Server Bind === */
