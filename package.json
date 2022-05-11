@@ -1,0 +1,16 @@
+{
+  "name": "server_qa_2204",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "DaltonHart <daltonvaren@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev:server": "nodemon"
+  }
+}
