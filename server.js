@@ -49,9 +49,8 @@ app.use(express.static(path.join(__dirname, "client/dist")));
 // url params => req.params
 // body => use middleware => req.body
 
+// get all
 app.get("/api/v1/bands", function (req, res) {
-  console.log(req.query);
-
   Band.all().then(data => {
     res.json(data);
   });
@@ -60,6 +59,27 @@ app.get("/api/v1/bands", function (req, res) {
 // show route by id
 app.get("/api/v1/bands/:id", function (req, res) {
   Band.filter({ column: "band_id", value: req.params.id }).then(data => {
+    res.json(data);
+  });
+});
+
+// update route by id
+app.put("/api/v1/bands/:id", function (req, res) {
+  Band.update(req.params.id, req.body).then(data => {
+    res.json(data);
+  });
+});
+
+// create
+app.post("/api/v1/bands", function (req, res) {
+  Band.create(req.body).then(data => {
+    res.json(data);
+  });
+});
+
+// remove
+app.delete("/api/v1/bands/:id", function (req, res) {
+  Band.remove(req.params.id).then(data => {
     res.json(data);
   });
 });

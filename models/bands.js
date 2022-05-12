@@ -29,7 +29,40 @@ const filter = options => {
     .then(results => results[0]);
 };
 
+const update = (id, { name, genre }) => {
+  return db
+    .queryAsync(
+      `UPDATE bands 
+        SET name="${name}", genre="${genre}"
+          WHERE band_id="${id}";`
+    )
+    .then(results => results[0]);
+};
+
+const create = ({ name, genre }) => {
+  return db
+    .queryAsync(
+      `INSERT INTO bands(name,genre)
+        VALUES
+          ("${name}","${genre}");`
+    )
+    .then(results => results[0]);
+};
+
+const remove = id => {
+  return db
+    .queryAsync(
+      `DELETE
+        FROM bands
+          WHERE band_id = ${id};`
+    )
+    .then(results => results[0]);
+};
+
 module.exports = {
   all,
   filter,
+  update,
+  create,
+  remove,
 };
