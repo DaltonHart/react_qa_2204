@@ -1,5 +1,6 @@
 /* === External Modules === */
 const express = require("express");
+const path = require("path");
 
 /* === Internal Modules === */
 const Band = require("./models/bands");
@@ -10,6 +11,9 @@ const app = express();
 /* === Middleware === */
 // body parsing middle
 app.use(express.json());
+
+// serve static files
+app.use(express.static(path.join(__dirname, "client/dist")));
 
 /* === Routes === */
 
@@ -45,22 +49,16 @@ app.use(express.json());
 // url params => req.params
 // body => use middleware => req.body
 
-// bands
-// express
 app.get("/api/v1/bands", function (req, res) {
   console.log(req.query);
 
-  // mysql
   Band.all().then(data => {
-    // express
     res.json(data);
   });
 });
 
 // show route by id
 app.get("/api/v1/bands/:id", function (req, res) {
-  console.log(req.params.id);
-
   Band.filter({ column: "band_id", value: req.params.id }).then(data => {
     res.json(data);
   });
