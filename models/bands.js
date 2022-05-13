@@ -1,7 +1,6 @@
 const db = require("../db");
 
 const all = () => {
-  // TODO Retrieve all data from bands table
   return db.queryAsync(`SELECT * FROM bands;`).then(results => results[0]);
 };
 

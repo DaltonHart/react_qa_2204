@@ -17,37 +17,9 @@ app.use(express.static(path.join(__dirname, "client/dist")));
 
 /* === Routes === */
 
-/*
-  request 
-  - url path -> /test 
-  - method 
-      - GET
-        - query params ?search=cat+gifs
-        - url params /student/:id 
-      - POST
-          - body data 
-          - url params /student/:id 
-      - PUT 
-        - body data
-        - url params /student/:id 
-      - PATCH
-        - body data
-        - url params /student/:id 
-      - DELETE
-        - url params /student/:id 
-*/
-
 //== api routes
 
-// $("element").on("click", callback)
-
-// listener
-// server.method("route", callback(req,res))
-
-// to access data
-// query params => req.query
-// url params => req.params
-// body => use middleware => req.body
+// == Bands
 
 // get all
 app.get("/api/v1/bands", function (req, res) {
