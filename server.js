@@ -31,7 +31,7 @@ app.get("/api/v1/bands", function (req, res) {
 // show route by id
 app.get("/api/v1/bands/:id", function (req, res) {
   Band.filter({ column: "band_id", value: req.params.id }).then(data => {
-    res.json(data);
+    res.json(data[0]);
   });
 });
 
